@@ -1,6 +1,4 @@
-# computeSystemMatrix_01.py
-
-This script computes **system matrices** from GEANT4 simulation `.root` files (data containing information such as energies and cordinates of interaction of photons in a compton camera based detector). These matrice characterises the detector response when a photon interact with it. This component is essential in the image reconstruction of the source of photons in the detector. The script applies physics-based filtering,  and then a 2D Kernel Density Estimation (KDE) is used to construct a system matrice.
+This script computes **system matrices** (KDE-based system matrix and Histogram based system matrix) from GEANT4 simulation `.root` files (data containing information such as energies and coordinates of interaction of photons from our simulation(the simulation setup was designed to model the interaction of gamma rays within a two layer liquid xenon (LXe) detector composed of two concentric cylinders). These system matrix encodes the probability that a photon emitted from a particular point in the detector is detected with a specific scattering angle and energy. First of all the data obtained from the simulation is filtered using physics-based filtering to make it more realistic like it was from a real detector and then we construct the system matrices from the preprocessed data using the energies deposited and the angle at which photons were scattered.
 
 The final output is saved in both **ROOT** and **HDF5** formats.
 
